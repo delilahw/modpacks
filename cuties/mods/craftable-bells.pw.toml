@@ -1,0 +1,13 @@
+name = "Craftable Bell"
+filename = "craftable-bells-48.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/jypVrveB/versions/ZmUTq5n3/craftable-bells-48.1.jar"
+hash-format = "sha512"
+hash = "651b0be833d8ab77764d1caa3c4d42b11841c1592d01c6271d27f40b68e8630ee690eba901a98c1a264dc09b3d317cb7bc970c9acb336fe6af0da07facb8ce6c"
+
+[update]
+[update.modrinth]
+mod-id = "jypVrveB"
+version = "ZmUTq5n3"

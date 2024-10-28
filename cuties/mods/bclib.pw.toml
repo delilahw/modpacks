@@ -1,0 +1,13 @@
+name = "BCLib"
+filename = "bclib-21.0.13.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/BgNRHReB/versions/TxWM7AW8/bclib-21.0.13.jar"
+hash-format = "sha512"
+hash = "93a5b45e4abcb27af6a8e8f662db9fd4115dfbb9e17adbce642f2217f5d09b48474d6b9e12b0673bdc663668e8d0d71b8fa23307c96c06176df55c090623a00c"
+
+[update]
+[update.modrinth]
+mod-id = "BgNRHReB"
+version = "TxWM7AW8"

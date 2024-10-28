@@ -1,0 +1,13 @@
+name = "cuties"
+author = "imlilah"
+version = "1.2.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "6525a83fc7a2655d768e93248829f3778f0817a8d7ba1896939cbd8fa023bf20"
+
+[versions]
+fabric = "0.16.7"
+minecraft = "1.21.1"

@@ -1,0 +1,13 @@
+name = "Quad"
+filename = "Quad-1.3.0-beta.5+1.21-Fabric.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/7jzrCiK0/versions/Z2BGgREI/Quad-1.3.0-beta.5%2B1.21-Fabric.jar"
+hash-format = "sha512"
+hash = "cabda56fa8278ab62432c3274adfe38542a569691f94aac88f5dcfacbd24635b943e3e8f5eab60fa2b87d031194be5bfb78679addab7808312b657d31d813588"
+
+[update]
+[update.modrinth]
+mod-id = "7jzrCiK0"
+version = "Z2BGgREI"

@@ -1,0 +1,13 @@
+name = "Passive Endermen"
+filename = "passiveendermen-1.21.1-4.8.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/N7UFQA9x/versions/yAOEluvQ/passiveendermen-1.21.1-4.8.jar"
+hash-format = "sha512"
+hash = "c2d397649c4a71a7a999036afd5c36e07aa35db60e7380a976d050b9809e25da962d784dbe7802b7485444be2249f337a82c1400e98f4bf2ce3bad64bf0e597c"
+
+[update]
+[update.modrinth]
+mod-id = "N7UFQA9x"
+version = "yAOEluvQ"

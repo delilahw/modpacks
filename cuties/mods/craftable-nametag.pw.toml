@@ -1,0 +1,13 @@
+name = "Craftable Nametag"
+filename = "craftable-nametag-48.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/UgFSv6UG/versions/kOnIaPhn/craftable-nametag-48.1.jar"
+hash-format = "sha512"
+hash = "838451d6382e76f772b79464ef3f3c09bc0da62715ad6074c5590d098ad08f06503dcbcbb43c6c30c4a9726fa5f38240f9c9fb212c6444f49c294ead5ce71e0c"
+
+[update]
+[update.modrinth]
+mod-id = "UgFSv6UG"
+version = "kOnIaPhn"

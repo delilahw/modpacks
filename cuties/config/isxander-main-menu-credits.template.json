@@ -1,0 +1,22 @@
+{
+    "main_menu": {
+        "bottom_right": [
+            {
+                "text": "Cuties! v${VERSION}",
+                "clickEvent": {
+                    "action": "open_url",
+                    "value": "https://github.com/delilahw/modpacks"
+                }
+            }
+        ]
+    },
+    "pause_menu": {
+        "bottom_right": [
+            {
+                "translate": "isxander-main-menu-credits.fabrishot",
+                "fallback": "Take 4K screenshots with F9",
+                "color": "dark_gray"
+            }
+        ]
+    }
+}

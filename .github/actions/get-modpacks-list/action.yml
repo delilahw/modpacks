@@ -1,0 +1,36 @@
+name: "Get Modpacks List"
+description: "Parse current modpack folders to a list"
+
+inputs:
+  pack-file:
+    description: "The pack file to look for in each folder"
+    default: pack.toml
+    required: true
+
+outputs:
+  modpack-folders:
+    description: "List of modpack folders"
+    value: ${{ steps.list-modpacks.outputs.modpack-folders }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Parse modpack folders to list
+      id: list-modpacks
+      shell: bash
+      run: |
+        modpackFolders=()
+        for folder in *; do
+          if [ -d "$folder" ]; then
+            if [ -e "$folder/${{ inputs.pack-file }}" ]; then
+              modpackFolders+=("$folder")
+            fi
+          fi
+        done
+
+        echo "modpack-folders=$(jq --compact-output --null-input '$ARGS.positional' --args -- "${modpackFolders[@]}")" >> "$GITHUB_OUTPUT"
+
+    - name: Print detected modpacks
+      shell: bash
+      run: |
+        echo "::notice ::⚙ Detected modpacks: ${{ steps.list-modpacks.outputs.modpack-folders }}"

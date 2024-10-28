@@ -1,0 +1,42 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  parse-current-modpacks:
+    uses: ./.github/workflows/get-modpacks-list.yml
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    needs:
+      - parse-current-modpacks
+    if: ${{ (needs.parse-current-modpacks.outputs.modpack-folders) != '[]' }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        modpack: ${{ fromJson(needs.parse-current-modpacks.outputs.modpack-folders) }}
+
+    defaults:
+      run:
+        working-directory: ${{ matrix.modpack }}
+
+    steps:
+      - name: Check Out Git Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build Modpack
+        uses: ./.github/actions/build
+        with:
+          modpack: ${{ matrix.modpack }}
+          build-modrinth: true
+          build-curse: false

@@ -1,0 +1,13 @@
+name = "Bartering Station"
+filename = "BarteringStation-v21.1.0-1.21.1-Fabric.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/EOig9U0j/versions/pxuwney2/BarteringStation-v21.1.0-1.21.1-Fabric.jar"
+hash-format = "sha512"
+hash = "1f2a376c525f15264c5c0fb2ec306832762e205e596497dadc98b44fdcaa001f6a95f87a3a2eadcb55ced565a2165d27f9c224f73ae317274d4782b04b6d9c82"
+
+[update]
+[update.modrinth]
+mod-id = "EOig9U0j"
+version = "pxuwney2"

@@ -1,0 +1,22 @@
+name: Get Modpacks List
+
+on:
+  workflow_call:
+    outputs:
+      modpack-folders:
+        description: "List of modpack folders"
+        value: ${{ jobs.get-modpacks-list.outputs.modpack-folders }}
+
+jobs:
+  get-modpacks-list:
+    name: Get Modpacks List
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      modpack-folders: ${{ steps.get-modpacks-list.outputs.modpack-folders }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/get-modpacks-list
+        id: get-modpacks-list

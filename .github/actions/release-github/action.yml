@@ -1,0 +1,44 @@
+name: 'Release Artifact to GitHub Releases'
+description: 'This action uploads the artifact to GitHub Releases'
+inputs:
+  artifact-name:
+    description: "The name of the artifact to upload"
+    default: modpack
+  release-tag:
+    description: "The release tag for the modpack upload"
+    required: true
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v4
+      id: download-artifact
+      with:
+        name: ${{ inputs.artifact-name }}
+
+    - name: Show artifacts
+      run: |
+        ls -lha .
+      shell: bash
+      working-directory: ${{ steps.download-artifact.outputs.download-path }}
+
+    - name: Upload artifacts to GitHub Releases
+      run: |
+        set -e
+        shopt -s nullglob
+        files=(*.{mrpack,zip})
+        if [ ${#files[@]} -eq 0 ]; then
+          echo "::error ::🚨 No artifacts found to upload"
+          exit 1
+        fi
+
+        gh release upload ${{ inputs.release-tag }} "${files[@]}" \
+          --repo ${{ github.repository_owner }}/${{ github.event.repository.name }} \
+          --clobber
+        echo "::notice ::☀ Modpack ${{ inputs.modpack }} has been uploaded to GitHub Releases"
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      working-directory: ${{ steps.download-artifact.outputs.download-path }}

@@ -1,0 +1,13 @@
+name = "BetterHurtCam"
+filename = "betterhurtcam-1.9.1+mc1.21.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/o4y0N2hu/versions/CSFEUtF2/betterhurtcam-1.9.1%2Bmc1.21.jar"
+hash-format = "sha512"
+hash = "bf2f63cacdda9f687f023762c30051bfb112c3637c7c724bb8ec56470f8e5e9739c74991eb6e00c9862908e769337dec774616dc8e0f53f92836b01d6f4578e4"
+
+[update]
+[update.modrinth]
+mod-id = "o4y0N2hu"
+version = "CSFEUtF2"

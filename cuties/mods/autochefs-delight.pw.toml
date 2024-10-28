@@ -1,0 +1,13 @@
+name = "Autochef's Delight"
+filename = "AutochefsDelight-1.21.1-Fabric-2.0.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/HY0PMpa3/versions/SldG0dLK/AutochefsDelight-1.21.1-Fabric-2.0.1.jar"
+hash-format = "sha512"
+hash = "11aa4003889dd2db82c4841c3bd34ecca359b8a69626713743b3cce0d32aabd73a6f73d5c75322caca091169a0073a25fb3edd35f9bf0d747fe5811e7f2c16f1"
+
+[update]
+[update.modrinth]
+mod-id = "HY0PMpa3"
+version = "SldG0dLK"

@@ -1,0 +1,13 @@
+name = "Craftable Bundle"
+filename = "craftable-bundles-48.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/6BricqUj/versions/XChB2p8t/craftable-bundles-48.1.jar"
+hash-format = "sha512"
+hash = "873336fca12dae17c1ff05ff791c375199d992f34c71335adb9d6d8b85e21306e28304345e836caa85c4350dc23ad0e39d1097f3900f56a047786c74c914dcc5"
+
+[update]
+[update.modrinth]
+mod-id = "6BricqUj"
+version = "XChB2p8t"
