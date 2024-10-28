@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0 (2024-10-28)
+
+
+### ★ Features
+
+* Initial commit ([afd6852](https://github.com/delilahw/modpacks/commit/afd68526fbe16d919474d8e79b12a14e4a29a9c9))
+
 ## [1.2.0](https://github.com/delilahw/modpacks/compare/cuties-v1.1.5...cuties-v1.2.0) (2024-10-28)
 
 
