@@ -2,7 +2,7 @@ hash-format = "sha256"
 
 [[files]]
 file = "config/bcc.json"
-hash = "1bd1036c0a08857200f7dc5ba2ec64d379a9056e37d417ad6cb94d5729d952db"
+hash = "cae01a624ae594d561ab2bec9395587b8b5e72aad8202f8c8a57d358a79b0e72"
 
 [[files]]
 file = "config/fabric_loader_dependencies.json"
@@ -10,7 +10,7 @@ hash = "d13af8d99c0268220d6f7fdd42643b41164ccdd3663e1722a215b8c489655dc2"
 
 [[files]]
 file = "config/isxander-main-menu-credits.json"
-hash = "62152bb8547d3ca9cd04a09e54cb5f15aad362e5b74df8268a1f26d108bc3801"
+hash = "3a4de4f371d802953ddb5a4718213f43154267ca35390d6c924c6acee4e03b6f"
 
 [[files]]
 file = "config/yosbr/config/LICENSE"
