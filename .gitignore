@@ -12,3 +12,8 @@
 
 # Exclude bin
 /packwiz
+
+# Editors
+*.swp
+.vscode/
+.idea/
