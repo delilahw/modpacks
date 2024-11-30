@@ -3,7 +3,7 @@ description: "Change a modpack's version to a specified tag"
 
 inputs:
   version:
-    description: "The version to bump the modpack to"
+    description: "The version to bump the modpack to, without the 'v' prefix"
     required: true
 
   modpack:
