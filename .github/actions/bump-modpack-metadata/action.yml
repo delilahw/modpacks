@@ -1,9 +1,9 @@
-name: "Bump Modpack Action | Action"
-description: "Bump a modpacks version"
+name: "Bump Modpack Metadata"
+description: "Change a modpack's version to a specified tag"
 
 inputs:
-  release-tag:
-    description: "The release tag to bump the modpack to"
+  version:
+    description: "The version to bump the modpack to"
     required: true
   modpack:
     description: "Path to the modpack directory"
@@ -38,14 +38,14 @@ runs:
       uses: cachix/install-nix-action@v22
 
     - name: Set the Version in ${{ inputs.pack-file }}
-      run: sed -i 's/version = "[^"]*"/version = "${{ inputs.release-tag }}"/' ${{ inputs.modpack }}/${{ inputs.pack-file }}
+      run: sed -i 's/version = "[^"]*"/version = "${{ inputs.version }}"/' ${{ inputs.modpack }}/${{ inputs.pack-file }}
       shell: bash
 
     - name: Process template configs
       shell: bash
       run: |
         set -e
-        export VERSION='${{ inputs.release-tag }}'
+        export VERSION='${{ inputs.version }}'
         ./scripts/subst-configs.sh ${{ inputs.modpack }}/config
 
     - name: Packwiz refresh
@@ -58,4 +58,4 @@ runs:
     - name: Push The Updated Version
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: "chore(${{ inputs.modpack }}): bump version to ${{ inputs.release-tag }}"
+        commit_message: "chore(${{ inputs.modpack }}): bump version to ${{ inputs.version }}"
