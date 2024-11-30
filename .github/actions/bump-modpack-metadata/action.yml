@@ -5,14 +5,17 @@ inputs:
   version:
     description: "The version to bump the modpack to"
     required: true
+
   modpack:
     description: "Path to the modpack directory"
     required: false
     default: "."
+
   pack-file:
     description: "Path to the pack config file"
     required: false
     default: "pack.toml"
+
   branch:
     description: "Branch, where to do the bump"
     required: false
@@ -23,7 +26,7 @@ runs:
 
   steps:
     - name: Check Out Git Repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         ref: ${{ inputs.branch }}
 
@@ -56,6 +59,6 @@ runs:
       working-directory: ${{ inputs.modpack }}
 
     - name: Push The Updated Version
-      uses: stefanzweifel/git-auto-commit-action@v4
+      uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "chore(${{ inputs.modpack }}): bump version to ${{ inputs.version }}"
