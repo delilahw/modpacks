@@ -76,6 +76,13 @@ runs:
     - name: Install nix
       uses: cachix/install-nix-action@v22
 
+    - name: Packwiz refresh
+      run: |
+        nix develop --command packwiz refresh
+        git diff index.toml || true
+      shell: bash
+      working-directory: ${{ inputs.modpack }}
+
     - name: Build Modrinth Modpack
       if: inputs.build-modrinth == 'true'
       run: |
