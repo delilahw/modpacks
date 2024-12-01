@@ -7,3 +7,4 @@
 /*.md
 
 /config/*.template.json
+.gitignore
