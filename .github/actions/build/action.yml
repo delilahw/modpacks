@@ -1,5 +1,5 @@
 name: "Build Modpack"
-description: "Build and upload modpack artifacts using packwiz"
+description: "Build modpack and upload it as an artifact"
 
 inputs:
   artifact-name:
