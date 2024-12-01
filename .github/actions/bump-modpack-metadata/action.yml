@@ -30,26 +30,12 @@ runs:
       with:
         ref: ${{ inputs.branch }}
 
-    - name: Install dependencies
-      run: |
-        set -e
-        sudo apt-get update
-        sudo apt-get install -y jq moreutils
-      shell: bash
-
     - name: Install nix
       uses: cachix/install-nix-action@v22
 
     - name: Set the Version in ${{ inputs.pack-file }}
       run: sed -i 's/version = "[^"]*"/version = "${{ inputs.version }}"/' ${{ inputs.modpack }}/${{ inputs.pack-file }}
       shell: bash
-
-    - name: Process template configs
-      shell: bash
-      run: |
-        set -e
-        export VERSION='${{ inputs.version }}'
-        ./scripts/subst-configs.sh ${{ inputs.modpack }}/config
 
     - name: Packwiz refresh
       run: |

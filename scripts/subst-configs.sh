@@ -10,6 +10,8 @@ process_file() {
   echo "Processing $template_file -> $output_file"
   envsubst <"$template_file" >"$output_file"
 
+  git diff --no-index "$template_file" "$output_file" || true
+
   # Validate the output file
   validate_file "$output_file"
 }
