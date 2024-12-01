@@ -1,5 +1,5 @@
 name: "Build Modpack"
-description: "Build and upload modpack artifacts using packwiz"
+description: "Build modpack and upload it as an artifact"
 
 inputs:
   artifact-name:
@@ -26,8 +26,62 @@ runs:
     - name: Check Out Git Repository
       uses: actions/checkout@v4
 
+    - name: Install dependencies
+      run: |
+        set -e
+        export DEBIAN_FRONTEND=noninteractive
+        sudo apt-get update
+        sudo apt-get install -y jq moreutils
+      shell: bash
+
+    - name: Get modpack version
+      id: version
+      run: |
+        version=$(yq '.version' -oj ${{ inputs.modpack }}/pack.toml | jq -r)
+        echo "version=$version" >> "$GITHUB_OUTPUT"
+      shell: bash
+
+    - name: Check modpack version matches tag
+      run: |
+        tag=$(git describe --exact-match --tags --abbrev=0 || true)
+        version='${{ steps.version.outputs.version }}'
+
+        echo "Version from ${{ inputs.modpack }}/pack.toml: $version"
+
+        if [ -z "$tag" ]; then
+          echo "::warning ::No tag found. Skipping version check."
+          exit 0
+        else
+          echo "Tag: $tag"
+
+          # Parse version from tag, e.g. `cuties-v1.0.0` -> `1.0.0`
+          tag_version=$(echo "$tag" | cut -d'-' -f2)
+          tag_version="${tag_version#v}"
+          echo "Version from git tag: $tag_version"
+        fi
+
+        if [ "${{ steps.version.outputs.version }}" != "$tag_version" ]; then
+          echo "::error ::Version in ${{ inputs.modpack }}/pack.toml ($version) does not match tag $(tag)"
+          exit 1
+        fi
+      shell: bash
+
+    - name: Process template files
+      shell: bash
+      run: |
+        set -e
+        export VERSION='${{ steps.version.outputs.version }}'
+        ./scripts/subst-configs.sh ${{ inputs.modpack }}/config
+
     - name: Install nix
       uses: cachix/install-nix-action@v22
+
+    - name: Packwiz refresh
+      run: |
+        nix develop --command packwiz refresh
+        git diff index.toml || true
+      shell: bash
+      working-directory: ${{ inputs.modpack }}
 
     - name: Build Modrinth Modpack
       if: inputs.build-modrinth == 'true'
