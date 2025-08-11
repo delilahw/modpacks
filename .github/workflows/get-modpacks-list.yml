@@ -16,7 +16,7 @@ jobs:
     outputs:
       modpack-folders: ${{ steps.get-modpacks-list.outputs.modpack-folders }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: ./.github/actions/get-modpacks-list
         id: get-modpacks-list

@@ -19,7 +19,7 @@ jobs:
     steps:
 
       - name: Check Out Git Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
 
       - name: List Modpacks
@@ -64,7 +64,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install nix
         uses: cachix/install-nix-action@v30
