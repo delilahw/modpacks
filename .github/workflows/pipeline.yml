@@ -80,7 +80,7 @@ jobs:
 
       - name: Get Latest tag
         id: tag
-        uses: WyriHaximus/github-action-get-previous-tag@v1
+        uses: WyriHaximus/github-action-get-previous-tag@v2
         if: ${{ steps.release-please.outputs.releases_created }}
 
       - name: Parse Pack File
